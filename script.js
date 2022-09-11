@@ -1,30 +1,53 @@
 // Two classes or factories
 // factory function for linked list
 
-const createList = (fullList) => {
-    const append = (value) => createNode(value, end);
-    const prepend = (value) => createNode(value, start);
-    return {
-        fullList: fullList
-    }
+const linkedList = () => {
+    let length = 0;
+    let headNode = null;
+    let tailNode = null;
+
+    const append = function(value) {
+        let node = createNode(value);
+        if (headNode === null) {
+            headNode = node;
+        } else {
+            tailNode = node;
+        }
+    };
+    const prepend = function(value) {
+        let node = createNode(value);
+        if (headNode === null) {
+            headNode = node;
+        } else {
+            headNode = node;
+        }
+    };
+    const size = () => {return length};
+    const head = () => {return headNode};
+    const tail = () => {return tailNode};
+    const at = (index) => {return fullList[index]};
+    const pop = () => {return};
+    const contains = (value) => {
+        if (value === fullList) {
+            return true
+        } else {
+            return false
+        }
+     };
+    const find = (value) => {return };
+    const toString = () => {
+        return linkedList.toString;
+    };
+    
 };
 
-const linkedList = createList(5);
-console.log(linkedList.fullList)
+const list = linkedList(5);
+console.log(linkedList.head);
 
 // factory function for node
-const createNode = (value, link) => {
-    return {
-        value: null,
-        link: null,
-    }
-
+const createNode = function(value) {
+    this.value = value;
+    this.next = null;
 };
 
-const node = createNode(1, null);
-console.log(node.value)
-
-// functions for linked lists
-function append(value) {
-    createNode(value)
-};
+const node = createNode(2);
