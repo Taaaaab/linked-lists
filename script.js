@@ -7,8 +7,12 @@ class linkedList {
         this.length = 0;
     }
 
-    append(data) {
-        
+    append(value) {
+        const last = this.getLast();
+        if (last == null) return null;
+
+        last.next = new LinkedListNode(value, last.next);
+        this.length++;
     }
 
     prepend(data) {
@@ -45,6 +49,11 @@ class linkedList {
         return current;
     }
 
+    pop() {
+        this.head = this.head.next;
+        this.length--;
+    }
+
     toString() {
         let output = '';
         let current = this.head;
@@ -71,10 +80,12 @@ ll.prepend(20);
 ll.prepend(30);
 ll.prepend(40);
 ll.append(5);
-// console.log(ll);
 
 ll.toString();
 console.log(ll.size());
 console.log(ll.getFirst().value);
 console.log(ll.getLast().value);  
 console.log(ll.at(2).value); 
+ll.pop();
+console.log(ll);
+
