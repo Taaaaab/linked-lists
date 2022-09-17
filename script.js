@@ -50,8 +50,30 @@ class linkedList {
     }
 
     pop() {
-        this.head = this.head.next;
-        this.length--;
+        let current = this.head,
+        previous;
+
+        while (current.next) {
+            previous = current;
+            current = current.next;
+        }
+
+        previous.next = null;
+        current = null;
+        return 
+    }
+
+    contains(value) {
+        let current = this.head;
+        while (current) {
+            if (current.value === value) {
+                return true;
+            } else {
+                current = current.next;
+            }
+
+        }
+        return false;
     }
 
     toString() {
@@ -87,5 +109,7 @@ console.log(ll.getFirst().value);
 console.log(ll.getLast().value);  
 console.log(ll.at(2).value); 
 ll.pop();
-console.log(ll);
+ll.toString();
+console.log(ll.contains(30));
+
 
