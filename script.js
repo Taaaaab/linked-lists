@@ -7,19 +7,32 @@ class linkedList {
         this.length = 0;
     }
 
+    append(data) {
+        
+    }
+
     prepend(data) {
         const newNode = new LinkedListNode(data, this.head);
         this.head = newNode;
         this.length++;
     }
 
-    append(data) {
-   
-
-    }
-
     size() {
         return this.length;
+    }
+
+    getFirst() {
+        return this.head;
+    }
+
+    getLast() {
+        let lastNode = this.head;
+        if (lastNode) {
+            while (lastNode.next) {
+                lastNode = lastNode.next
+            }
+        }
+        return lastNode;
     }
 
     at(index) {
@@ -59,6 +72,9 @@ ll.prepend(30);
 ll.prepend(40);
 ll.append(5);
 // console.log(ll);
-console.log(ll.at(0));
+
 ll.toString();
 console.log(ll.size());
+console.log(ll.getFirst().value);
+console.log(ll.getLast().value);  
+console.log(ll.at(2).value); 
