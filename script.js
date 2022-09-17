@@ -76,6 +76,22 @@ class linkedList {
         return false;
     }
 
+    find(value) {
+        let current = this.head;
+        let index = 0;
+
+        while (current) {
+            if (current.value === value) {
+                return index;
+            } else {
+                current = current.next;
+                index++;
+            }
+
+        }
+        return null;
+    }
+
     toString() {
         let output = '';
         let current = this.head;
@@ -95,7 +111,6 @@ class LinkedListNode {
 }
 
 
-
 const ll = new linkedList()
 ll.prepend(10);
 ll.prepend(20);
@@ -111,5 +126,6 @@ console.log(ll.at(2).value);
 ll.pop();
 ll.toString();
 console.log(ll.contains(30));
+console.log(ll.find(30));
 
 
